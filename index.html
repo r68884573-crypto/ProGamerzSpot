@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ProGamerzSpot | Gaming Zone</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080b14;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px 7%;
+    background: #111827;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #29364b;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #00f7ff;
+    animation: glow 2s infinite alternate;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00f7ff;
+}
+
+.hero {
+    min-height: 480px;
+    padding: 90px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        linear-gradient(#080b1480, #080b14f5),
+        url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 6vw, 65px);
+    margin-bottom: 20px;
+    animation: slideIn 1s ease;
+}
+
+.hero h1 span {
+    color: #00f7ff;
+}
+
+.hero p {
+    color: #cbd5e1;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: #00f7ff;
+    color: #08111b;
+    border: none;
+    border-radius: 6px;
+    padding: 13px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 20px #00f7ff;
+}
+
+.games, .minecraft {
+    padding: 65px 7%;
+    text-align: center;
+}
+
+.minecraft {
+    background: linear-gradient(180deg, #102016, #080b14);
+}
+
+.section-title {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.games .section-title span {
+    color: #00f7ff;
+}
+
+.minecraft .section-title span {
+    color: #6ce34f;
+    text-shadow: 0 0 15px #37c832;
+}
+
+.subtitle {
+    color: #aeb8c8;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    overflow: hidden;
+    background: #151c2c;
+    border: 1px solid #29364b;
+    border-radius: 12px;
+    text-align: left;
+    animation: fadeIn 0.8s ease both;
+    transition: transform 0.35s, box-shadow 0.35s;
+}
+
+.card:hover {
+    transform: translateY(-9px);
+    border-color: #00f7ff;
+    box-shadow: 0 0 22px #00f7ff25;
+}
+
+.mc-card {
+    background: #17251b;
+    border-color: #315b32;
+}
+
+.mc-card:hover {
+    border-color: #6ce34f;
+    box-shadow: 0 0 22px #67e34b30;
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: 185px;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
+    color: #00f7ff;
+    margin-bottom: 12px;
+}
+
+.mc-card .card-info h3 {
+    color: #6ce34f;
+}
+
+.card-info p {
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.mc-btn {
+    background: #48a832;
+    color: white;
+}
+
+.mc-btn:hover {
+    background: #6ce34f;
+    color: #10200d;
+    box-shadow: 0 0 15px #6ce34f;
+}
+
+.about {
+    background: #111827;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.about p {
+    max-width: 650px;
+    margin: 20px auto 25px;
+    color: #cbd5e1;
+    line-height: 1.8;
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    color: #9ca3af;
+    background: #080b14;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #00f7ff; }
+    to { text-shadow: 0 0 20px #00f7ff; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 0 6px;
+        font-size: 13px;
+    }
+
+    .games, .minecraft {
+        padding: 45px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">ProGamerzSpot</div>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#minecraft">Minecraft</a>
+        <a href="#about">About</a>
+    </div>
+</nav>
+
+<header class="hero" id="home">
+    <div>
+        <h1>WELCOME TO <span>PROGAMERZSPOT</span></h1>
+        <p>Your Gaming World Starts Here!</p>
+        <a class="btn" href="#games">EXPLORE GAMES</a>
+    </div>
+</header>
+
+<section class="games" id="games">
+    <h2 class="section-title">POPULAR <span>GAMES</span></h2>
+    <p class="subtitle">Discover your next gaming adventure.</p>
+
+    <div class="card-grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=80"
+                 alt="Esports gaming setup">
+            <div class="card-info">
+                <h3>Battle Arena</h3>
+                <p>Enter the arena and show your gaming skills.</p>
+                <button class="btn" onclick="playGame('Battle Arena')">PLAY NOW</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=700&q=80"
+                 alt="Video game controller">
+            <div class="card-info">
+                <h3>Action Zone</h3>
+                <p>Get ready for an action-packed adventure.</p>
+                <button class="btn" onclick="playGame('Action Zone')">PLAY NOW</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=700&q=80"
+                 alt="Gaming computer">
+            <div class="card-info">
+                <h3>Cyber World</h3>
+                <p>Explore a futuristic gaming universe.</p>
+                <button class="btn" onclick="playGame('Cyber World')">PLAY NOW</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="minecraft" id="minecraft">
+    <h2 class="section-title">MY <span>MINECRAFT WORLD</span> ⛏️</h2>
+    <p class="subtitle">EXPLORE • BUILD • SURVIVE • CONQUER</p>
+
+    <div class="card-grid">
+
+        <div class="card mc-card">
+            <img src="https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=700&q=80"
+                 alt="Gaming adventure">
+            <div class="card-info">
+                <h3>Survival Mode</h3>
+                <p>Gather resources, craft tools and build your base.</p>
+                <a class="btn mc-btn" href="https://www.minecraft.net/"
+                   target="_blank" rel="noopener noreferrer">EXPLORE</a>
+            </div>
+        </div>
+
+        <div class="card mc-card">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=80"
+                 alt="Gaming arena">
+            <div class="card-info">
+                <h3>Epic Adventures</h3>
+                <p>Discover new worlds and take on exciting challenges.</p>
+                <a class="btn mc-btn" href="https://www.minecraft.net/"
+                   target="_blank" rel="noopener noreferrer">DISCOVER</a>
+            </div>
+        </div>
+
+        <div class="card mc-card">
+            <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=700&q=80"
+                 alt="Gaming controller">
+            <div class="card-info">
+                <h3>Minecraft Zone</h3>
+                <p>Visit the official Minecraft website for more information.</p>
+                <a class="btn mc-btn" href="https://www.minecraft.net/"
+                   target="_blank" rel="noopener noreferrer">VISIT WEBSITE</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="about" id="about">
+    <h2 class="section-title">ABOUT <span>US</span></h2>
+    <p>
+        Welcome to ProGamerzSpot! A gaming website for gamers
+        who love Minecraft, technology and exciting adventures.
+        Explore our gaming world and stay tuned for more!
+    </p>
+    <button class="btn" onclick="showMessage()">CONTACT US</button>
+</section>
+
+<footer>
+    <p>© 2026 ProGamerzSpot | Made with HTML, CSS & JavaScript</p>
+</footer>
+
+<script>
+function playGame(name) {
+    alert(name + " selected! A real game link can be added here.");
+}
+
+function showMessage() {
+    alert("Thanks for visiting ProGamerzSpot!");
+}
+</script>
+
+</body>
+</html>
